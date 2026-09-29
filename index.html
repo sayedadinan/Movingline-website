@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moving Line | Land Transportation & Truck Services in Dubai</title>
+    <meta name="description" content="Moving Line provides professional land transportation and truck services in Dubai and across the GCC. Based in Ras Al Khor Industrial Area 1.">
+    <meta name="keywords" content="land transportation Dubai, truck transportation Dubai, truck service Dubai, land transport UAE, transportation company Dubai, truck rental/service Dubai, Ras Al Khor transportation, commercial truck transportation UAE">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Moving Line | Land Transportation & Truck Services in Dubai">
+    <meta property="og:description" content="Moving Line provides professional land transportation and truck services in Dubai and across the GCC. Based in Ras Al Khor Industrial Area 1.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="assets/hero_truck.jpg">
+    
+    <link rel="icon" type="image/png" href="assets/logo.jpg">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            DEFAULT: '#bd006d',
+                            dark: '#97005f',
+                            darker: '#85005a',
+                            light: '#d00080',
+                        },
+                        charcoal: {
+                            DEFAULT: '#1a1a1a',
+                            light: '#2a2a2a',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <style>
+        .hero-overlay {
+            background: linear-gradient(to right, rgba(26,26,26,0.9) 0%, rgba(26,26,26,0.6) 100%);
+        }
+        .service-card {
+            transition: all 0.3s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
+        }
+        .service-card:hover .icon-box {
+            background-color: #bd006d;
+            color: white;
+        }
+        .icon-box {
+            transition: all 0.3s ease;
+        }
+        .mobile-menu {
+            transition: transform 0.3s ease-in-out;
+            transform: translateX(100%);
+        }
+        .mobile-menu.open {
+            transform: translateX(0%);
+        }
+        /* Mobile Bottom Action Bar padding */
+        body {
+            padding-bottom: 70px; /* Space for mobile action bar */
+        }
+        @media (min-width: 768px) {
+            body {
+                padding-bottom: 0;
+            }
+        }
+    </style>
+</head>
+<body class="bg-white text-charcoal">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 bg-white border-b border-gray-100 shadow-sm transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="flex items-center">
+                        <img class="h-12 w-auto" src="assets/logo.jpg" alt="Moving Line Logo">
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#home" class="text-sm font-semibold text-charcoal hover:text-brand transition-colors">Home</a>
+                    <a href="#about" class="text-sm font-semibold text-charcoal hover:text-brand transition-colors">About</a>
+                    <a href="#services" class="text-sm font-semibold text-charcoal hover:text-brand transition-colors">Services</a>
+                    <a href="#fleet" class="text-sm font-semibold text-charcoal hover:text-brand transition-colors">Fleet</a>
+                    <a href="#contact" class="text-sm font-semibold text-charcoal hover:text-brand transition-colors">Contact</a>
+                    
+                    <a href="#quote" class="bg-brand hover:bg-brand-dark text-white px-6 py-2.5 rounded font-semibold text-sm transition-colors shadow-md">
+                        Get a Quote
+                    </a>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-charcoal hover:text-brand focus:outline-none">
+                        <i class="ph ph-list text-3xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu-panel" class="md:hidden fixed inset-0 z-40 bg-white mobile-menu pt-20 px-6 pb-6 flex flex-col space-y-6 overflow-y-auto">
+            <button id="close-menu-btn" class="absolute top-6 right-6 text-charcoal hover:text-brand focus:outline-none">
+                <i class="ph ph-x text-3xl"></i>
+            </button>
+            <a href="#home" class="mobile-link text-xl font-semibold text-charcoal hover:text-brand">Home</a>
+            <a href="#about" class="mobile-link text-xl font-semibold text-charcoal hover:text-brand">About</a>
+            <a href="#services" class="mobile-link text-xl font-semibold text-charcoal hover:text-brand">Services</a>
+            <a href="#fleet" class="mobile-link text-xl font-semibold text-charcoal hover:text-brand">Fleet</a>
+            <a href="#contact" class="mobile-link text-xl font-semibold text-charcoal hover:text-brand">Contact</a>
+            
+            <div class="mt-8 pt-8 border-t border-gray-100 flex flex-col space-y-4">
+                <a href="tel:+971552804470" class="flex items-center text-charcoal font-semibold">
+                    <i class="ph-fill ph-phone text-brand text-xl mr-3"></i> +971 55 280 4470
+                </a>
+                <a href="https://wa.me/971552804470" target="_blank" class="flex items-center text-charcoal font-semibold">
+                    <i class="ph-fill ph-whatsapp-logo text-green-500 text-xl mr-3"></i> WhatsApp Us
+                </a>
+                <a href="#quote" class="mobile-link mt-4 text-center bg-brand text-white px-6 py-3 rounded font-semibold shadow-md">
+                    Get a Transport Quote
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative pt-20 pb-20 md:pt-32 md:pb-32 min-h-[85vh] flex items-center">
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="assets/hero_truck.jpg" alt="Commercial truck on UAE highway" class="w-full h-full object-cover object-center">
+            <div class="absolute inset-0 hero-overlay"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="max-w-2xl">
+                <div class="inline-flex items-center space-x-2 bg-charcoal-light/60 backdrop-blur-sm border border-gray-600 rounded-full px-4 py-1.5 mb-6">
+                    <i class="ph-fill ph-map-pin text-brand"></i>
+                    <span class="text-gray-200 text-sm font-medium tracking-wide uppercase">Ras Al Khor Industrial Area 1, Dubai</span>
+                </div>
+                
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+                    Reliable Land Transportation Across the UAE
+                </h1>
+                
+                <p class="text-lg md:text-xl text-gray-300 mb-10 max-w-xl">
+                    Professional truck transportation services for businesses across Dubai and the GCC.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="#quote" class="bg-brand hover:bg-brand-dark text-white px-8 py-4 rounded font-semibold text-center transition-colors shadow-lg shadow-brand/30 flex items-center justify-center">
+                        Get a Transport Quote <i class="ph-bold ph-arrow-right ml-2"></i>
+                    </a>
+                    <a href="https://wa.me/971552804470" target="_blank" class="bg-white hover:bg-gray-50 text-charcoal px-8 py-4 rounded font-semibold text-center transition-colors flex items-center justify-center">
+                        <i class="ph-fill ph-whatsapp-logo text-green-500 text-xl mr-2"></i> WhatsApp Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h4 class="text-brand font-bold tracking-wider uppercase text-sm mb-2">About Moving Line</h4>
+                    <h2 class="text-3xl md:text-4xl font-bold text-charcoal mb-6">Your Partner in Road Transportation</h2>
+                    <p class="text-gray-600 text-lg mb-6 leading-relaxed">
+                        Moving Line provides professional land transportation and truck services from Dubai, supporting businesses with reliable road transportation solutions across the GCC.
+                    </p>
+                    <p class="text-gray-600 text-lg leading-relaxed mb-8">
+                        Based in Ras Al Khor Industrial Area 1, Dubai, we specialize strictly in commercial transportation and truck services tailored to meet the operational demands of our clients.
+                    </p>
+                    
+                    <div class="flex items-center space-x-6">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-gray-100 rounded flex items-center justify-center mr-4">
+                                <i class="ph-fill ph-truck text-brand text-2xl"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-charcoal">Commercial</h5>
+                                <p class="text-sm text-gray-500">B2B Focus</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-gray-100 rounded flex items-center justify-center mr-4">
+                                <i class="ph-fill ph-map-trifold text-brand text-2xl"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-charcoal">UAE Wide</h5>
+                                <p class="text-sm text-gray-500">Coverage</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <img src="assets/cargo_truck.jpg" alt="Moving Line Truck in Industrial Area" class="rounded shadow-xl object-cover h-[400px] w-full">
+                    <div class="absolute -bottom-6 -left-6 bg-brand text-white p-6 rounded shadow-lg max-w-xs hidden md:block">
+                        <h4 class="font-bold text-xl mb-1">Based in Dubai</h4>
+                        <p class="text-sm text-brand-100">Ras Al Khor Industrial Area 1</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gray-50 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h4 class="text-brand font-bold tracking-wider uppercase text-sm mb-2">What We Do</h4>
+                <h2 class="text-3xl md:text-4xl font-bold text-charcoal mb-4">Our Transportation Services</h2>
+                <p class="text-gray-600 text-lg">Dependable road transport and truck services designed for commercial and industrial businesses.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-white p-8 rounded shadow-sm border border-gray-100 service-card">
+                    <div class="w-14 h-14 bg-gray-50 rounded flex items-center justify-center icon-box mb-6 border border-gray-100 text-brand">
+                        <i class="ph-fill ph-truck text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-charcoal mb-3">Truck Transportation</h3>
+                    <p class="text-gray-600">Professional truck transportation for commercial and business requirements.</p>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="bg-white p-8 rounded shadow-sm border border-gray-100 service-card">
+                    <div class="w-14 h-14 bg-gray-50 rounded flex items-center justify-center icon-box mb-6 border border-gray-100 text-brand">
+                        <i class="ph-fill ph-road-horizon text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-charcoal mb-3">Land Transportation</h3>
+                    <p class="text-gray-600">Reliable road transportation for moving goods between locations across the GCC.</p>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="bg-white p-8 rounded shadow-sm border border-gray-100 service-card">
+                    <div class="w-14 h-14 bg-gray-50 rounded flex items-center justify-center icon-box mb-6 border border-gray-100 text-brand">
+                        <i class="ph-fill ph-package text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-charcoal mb-3">Commercial Cargo Transport</h3>
+                    <p class="text-gray-600">Transportation support for businesses that need dependable movement of goods and materials.</p>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="bg-white p-8 rounded shadow-sm border border-gray-100 service-card">
+                    <div class="w-14 h-14 bg-gray-50 rounded flex items-center justify-center icon-box mb-6 border border-gray-100 text-brand">
+                        <i class="ph-fill ph-steering-wheel text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-charcoal mb-3">Dedicated Truck Service</h3>
+                    <p class="text-gray-600">Truck services for businesses requiring dedicated transportation support.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="py-20 bg-charcoal text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Transportation You Can Rely On</h2>
+                <p class="text-gray-400 text-lg">We focus on what matters: delivering your commercial goods safely and efficiently.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="flex flex-col items-center text-center p-6 bg-charcoal-light rounded border border-gray-700">
+                    <i class="ph-fill ph-shield-check text-brand text-4xl mb-4"></i>
+                    <h3 class="font-bold text-xl mb-2">Reliable Transportation</h3>
+                </div>
+                <div class="flex flex-col items-center text-center p-6 bg-charcoal-light rounded border border-gray-700">
+                    <i class="ph-fill ph-briefcase text-brand text-4xl mb-4"></i>
+                    <h3 class="font-bold text-xl mb-2">Professional Service</h3>
+                </div>
+                <div class="flex flex-col items-center text-center p-6 bg-charcoal-light rounded border border-gray-700">
+                    <i class="ph-fill ph-map-pin-line text-brand text-4xl mb-4"></i>
+                    <h3 class="font-bold text-xl mb-2">UAE & GCC Land Transport</h3>
+                </div>
+                <div class="flex flex-col items-center text-center p-6 bg-charcoal-light rounded border border-gray-700">
+                    <i class="ph-fill ph-chat-circle-text text-brand text-4xl mb-4"></i>
+                    <h3 class="font-bold text-xl mb-2">Easy Booking & Communication</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h4 class="text-brand font-bold tracking-wider uppercase text-sm mb-2">Process</h4>
+                <h2 class="text-3xl md:text-4xl font-bold text-charcoal">How It Works</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 relative">
+                <!-- Connecting Line for Desktop -->
+                <div class="hidden md:block absolute top-12 left-[15%] right-[15%] h-0.5 bg-gray-200 z-0"></div>
+                
+                <!-- Step 1 -->
+                <div class="relative z-10 flex flex-col items-center text-center">
+                    <div class="w-24 h-24 bg-white border-4 border-gray-100 rounded-full flex items-center justify-center text-3xl font-black text-brand mb-6 shadow-sm">
+                        01
+                    </div>
+                    <h3 class="text-xl font-bold text-charcoal mb-3">Contact Us</h3>
+                    <p class="text-gray-600">Tell us your transportation requirement.</p>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="relative z-10 flex flex-col items-center text-center">
+                    <div class="w-24 h-24 bg-brand border-4 border-brand-light rounded-full flex items-center justify-center text-3xl font-black text-white mb-6 shadow-md">
+                        02
+                    </div>
+                    <h3 class="text-xl font-bold text-charcoal mb-3">Get a Quote</h3>
+                    <p class="text-gray-600">Our team understands your requirement and provides the appropriate transport solution.</p>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="relative z-10 flex flex-col items-center text-center">
+                    <div class="w-24 h-24 bg-white border-4 border-gray-100 rounded-full flex items-center justify-center text-3xl font-black text-brand mb-6 shadow-sm">
+                        03
+                    </div>
+                    <h3 class="text-xl font-bold text-charcoal mb-3">Move Your Cargo</h3>
+                    <p class="text-gray-600">We arrange the required truck transportation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fleet / Visual Section -->
+    <section id="fleet" class="py-20 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-end mb-10">
+                <div>
+                    <h4 class="text-brand font-bold tracking-wider uppercase text-sm mb-2">Our Capabilities</h4>
+                    <h2 class="text-3xl md:text-4xl font-bold text-charcoal">Built for the Road</h2>
+                </div>
+                <div class="hidden md:block">
+                    <a href="#quote" class="text-brand font-semibold hover:text-brand-dark flex items-center">
+                        Request Transport <i class="ph-bold ph-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="group overflow-hidden rounded shadow-md h-[350px] relative">
+                    <img src="assets/cargo_truck.jpg" alt="Commercial Cargo Truck Dubai" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-charcoal/80 to-transparent opacity-80"></div>
+                    <div class="absolute bottom-6 left-6 right-6">
+                        <h3 class="text-white text-2xl font-bold mb-1">Cargo Trucks</h3>
+                        <p class="text-gray-300 text-sm">Industrial & Commercial Transport</p>
+                    </div>
+                </div>
+                
+                <div class="group overflow-hidden rounded shadow-md h-[350px] relative">
+                    <img src="assets/trailer_truck.jpg" alt="Trailer Truck on UAE Highway" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-charcoal/80 to-transparent opacity-80"></div>
+                    <div class="absolute bottom-6 left-6 right-6">
+                        <h3 class="text-white text-2xl font-bold mb-1">Trailer Trucks</h3>
+                        <p class="text-gray-300 text-sm">Heavy Goods & Highway Transport</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact / Quote Section -->
+    <section id="contact" class="py-24 bg-white relative">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: radial-gradient(#1c1c1c 1px, transparent 1px); background-size: 32px 32px;"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10" id="quote">
+            <div class="bg-charcoal rounded-xl shadow-2xl overflow-hidden">
+                <div class="grid grid-cols-1 lg:grid-cols-5">
+                    
+                    <!-- Contact Info -->
+                    <div class="lg:col-span-2 bg-charcoal text-white p-10 md:p-12 flex flex-col justify-between">
+                        <div>
+                            <h2 class="text-3xl font-bold mb-4">Need a Truck for Your Next Transport?</h2>
+                            <p class="text-gray-400 mb-10 leading-relaxed">
+                                Tell us what you need to transport and our team will help you with the right transportation solution.
+                            </p>
+                            
+                            <div class="space-y-6">
+                                <a href="tel:+971552804470" class="flex items-start group">
+                                    <div class="w-10 h-10 rounded bg-gray-800 flex items-center justify-center mr-4 group-hover:bg-brand transition-colors flex-shrink-0">
+                                        <i class="ph-fill ph-phone text-xl text-white"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-400 mb-1">Primary Contact</p>
+                                        <p class="font-bold text-lg">+971 55 280 4470</p>
+                                    </div>
+                                </a>
+                                
+                                <a href="tel:+971585686878" class="flex items-start group">
+                                    <div class="w-10 h-10 rounded bg-gray-800 flex items-center justify-center mr-4 group-hover:bg-brand transition-colors flex-shrink-0">
+                                        <i class="ph-fill ph-phone text-xl text-white"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-400 mb-1">Secondary Contact</p>
+                                        <p class="font-bold text-lg">058 568 6878</p>
+                                    </div>
+                                </a>
+                                
+                                <div class="flex items-start">
+                                    <div class="w-10 h-10 rounded bg-gray-800 flex items-center justify-center mr-4 flex-shrink-0">
+                                        <i class="ph-fill ph-map-pin text-xl text-white"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-400 mb-1">Location</p>
+                                        <p class="font-bold">Ras Al Khor Industrial Area 1<br>Dubai, United Arab Emirates</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-12 pt-8 border-t border-gray-700 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                            <a href="https://wa.me/971552804470" target="_blank" class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded font-semibold text-center transition-colors flex items-center justify-center w-full">
+                                <i class="ph-fill ph-whatsapp-logo text-xl mr-2"></i> WhatsApp
+                            </a>
+                            <a href="tel:+971552804470" class="bg-brand hover:bg-brand-dark text-white px-6 py-3 rounded font-semibold text-center transition-colors flex items-center justify-center w-full">
+                                <i class="ph-fill ph-phone text-xl mr-2"></i> Call Now
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Form -->
+                    <div class="lg:col-span-3 bg-gray-50 p-10 md:p-12">
+                        <h3 class="text-2xl font-bold text-charcoal mb-6">Request a Transport Quote</h3>
+                        <form class="space-y-6" id="quote-form">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Full Name *</label>
+                                    <input type="text" id="name" name="name" required class="w-full px-4 py-3 rounded border border-gray-300 focus:ring-2 focus:ring-brand focus:border-brand outline-none transition-colors">
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address (Optional)</label>
+                                    <input type="email" id="email" name="email" class="w-full px-4 py-3 rounded border border-gray-300 focus:ring-2 focus:ring-brand focus:border-brand outline-none transition-colors">
+                                </div>
+                            </div>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="company" class="block text-sm font-medium text-gray-700 mb-1">Company Name</label>
+                                    <input type="text" id="company" name="company" class="w-full px-4 py-3 rounded border border-gray-300 focus:ring-2 focus:ring-brand focus:border-brand outline-none transition-colors">
+                                </div>
+                                <div>
+                                    <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number *</label>
+                                    <input type="tel" id="phone" name="phone" required class="w-full px-4 py-3 rounded border border-gray-300 focus:ring-2 focus:ring-brand focus:border-brand outline-none transition-colors">
+                                </div>
+                                <div>
+                                    <label for="requirement" class="block text-sm font-medium text-gray-700 mb-1">Transport Requirement *</label>
+                                    <select id="requirement" name="requirement" required class="w-full px-4 py-3 rounded border border-gray-300 focus:ring-2 focus:ring-brand focus:border-brand outline-none transition-colors bg-white">
+                                    <option value="" disabled selected>Select an option</option>
+                                    <option value="Cargo Transport">Commercial Cargo Transport</option>
+                                    <option value="Dedicated Truck">Dedicated Truck Service</option>
+                                    <option value="One-time Move">One-time Land Transport</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="pickup" class="block text-sm font-medium text-gray-700 mb-1">Pickup Location *</label>
+                                    <input type="text" id="pickup" name="pickup" required class="w-full px-4 py-3 rounded border border-gray-300 focus:ring-2 focus:ring-brand focus:border-brand outline-none transition-colors">
+                                </div>
+                                <div>
+                                    <label for="dropoff" class="block text-sm font-medium text-gray-700 mb-1">Drop-off Location *</label>
+                                    <input type="text" id="dropoff" name="dropoff" required class="w-full px-4 py-3 rounded border border-gray-300 focus:ring-2 focus:ring-brand focus:border-brand outline-none transition-colors">
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Additional Details</label>
+                                <textarea id="message" name="message" rows="3" class="w-full px-4 py-3 rounded border border-gray-300 focus:ring-2 focus:ring-brand focus:border-brand outline-none transition-colors"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="w-full bg-brand hover:bg-brand-dark text-white px-6 py-4 rounded font-bold text-lg transition-colors shadow-md">
+                                Request a Quote
+                            </button>
+                            <p class="text-xs text-gray-500 text-center mt-4">We will get back to you shortly with a customized transportation solution.</p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-charcoal text-white pt-16 pb-8 border-t-[6px] border-brand">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+                
+                <!-- Logo & About -->
+                <div class="col-span-1 md:col-span-1">
+                    <img src="assets/logo.jpg" alt="Moving Line Logo" class="h-12 mb-6 bg-white p-2 rounded">
+                    <p class="text-gray-400 mb-6 max-w-sm">
+                        Reliable Land Transportation & Truck Services supporting businesses across the GCC.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://wa.me/971552804470" target="_blank" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-green-600 transition-colors">
+                            <i class="ph-fill ph-whatsapp-logo text-xl"></i>
+                        </a>
+                        <a href="tel:+971552804470" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand transition-colors">
+                            <i class="ph-fill ph-phone text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6 text-white border-b border-gray-700 pb-2 inline-block">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#home" class="text-gray-400 hover:text-brand transition-colors">Home</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-brand transition-colors">About</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-brand transition-colors">Services</a></li>
+                        <li><a href="#fleet" class="text-gray-400 hover:text-brand transition-colors">Fleet</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-brand transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6 text-white border-b border-gray-700 pb-2 inline-block">Contact Info</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="ph-fill ph-map-pin text-brand text-xl mr-3 mt-0.5"></i>
+                            <span class="text-gray-400">Ras Al Khor Industrial Area 1,<br>Dubai, UAE</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="ph-fill ph-phone text-brand text-xl mr-3"></i>
+                            <a href="tel:+971552804470" class="text-gray-400 hover:text-white transition-colors">+971 55 280 4470</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="ph-fill ph-phone text-brand text-xl mr-3"></i>
+                            <a href="tel:+971585686878" class="text-gray-400 hover:text-white transition-colors">058 568 6878</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 text-center md:text-left flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-500 text-sm">
+                    &copy; 2026 Moving Line. All rights reserved.
+                </p>
+                <p class="text-gray-500 text-sm mt-2 md:mt-0">
+                    Commercial Land Transportation Services Dubai
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Bottom Action Bar (Sticky) -->
+    <div class="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 shadow-[0_-5px_15px_-5px_rgba(0,0,0,0.1)] z-50 flex justify-between">
+        <a href="tel:+971552804470" class="flex-1 flex flex-col items-center justify-center py-3 text-charcoal hover:bg-gray-50">
+            <i class="ph-fill ph-phone text-brand text-xl mb-1"></i>
+            <span class="text-[10px] font-bold uppercase tracking-wide">Call</span>
+        </a>
+        <div class="w-[1px] bg-gray-200 my-2"></div>
+        <a href="https://wa.me/971552804470" target="_blank" class="flex-1 flex flex-col items-center justify-center py-3 text-charcoal hover:bg-gray-50">
+            <i class="ph-fill ph-whatsapp-logo text-green-500 text-xl mb-1"></i>
+            <span class="text-[10px] font-bold uppercase tracking-wide">WhatsApp</span>
+        </a>
+        <div class="w-[1px] bg-gray-200 my-2"></div>
+        <a href="#quote" class="flex-1 flex flex-col items-center justify-center py-3 bg-brand text-white hover:bg-brand-dark">
+            <i class="ph-fill ph-clipboard-text text-xl mb-1"></i>
+            <span class="text-[10px] font-bold uppercase tracking-wide">Quote</span>
+        </a>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+        const mobileMenuPanel = document.getElementById('mobile-menu-panel');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        
+        function toggleMenu() {
+            mobileMenuPanel.classList.toggle('open');
+            document.body.classList.toggle('overflow-hidden');
+        }
+        
+        mobileMenuBtn.addEventListener('click', toggleMenu);
+        closeMenuBtn.addEventListener('click', toggleMenu);
+        
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', toggleMenu);
+        });
+        
+        // Form Submission via WhatsApp
+        document.getElementById('quote-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const company = document.getElementById('company').value;
+            const requirement = document.getElementById('requirement').value;
+            const pickup = document.getElementById('pickup').value;
+            const dropoff = document.getElementById('dropoff').value;
+            const message = document.getElementById('message').value;
+
+            let waMessage = `*New Transport Quote Request*\n\n`;
+            waMessage += `*Name:* ${name}\n`;
+            if (company) waMessage += `*Company:* ${company}\n`;
+            waMessage += `*Phone:* ${phone}\n`;
+            if (email) waMessage += `*Email:* ${email}\n`;
+            waMessage += `\n*Requirement:* ${requirement}\n`;
+            waMessage += `*Pickup Location:* ${pickup}\n`;
+            waMessage += `*Drop-off Location:* ${dropoff}\n`;
+            if (message) waMessage += `\n*Additional Details:*\n${message}`;
+
+            const encodedMessage = encodeURIComponent(waMessage);
+            const waUrl = `https://wa.me/971552804470?text=${encodedMessage}`;
+            
+            window.open(waUrl, '_blank');
+        });    </script>
+</body>
+</html>
